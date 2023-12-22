@@ -1,0 +1,18 @@
+command_base:
+    browser_user:
+        server_enabled: true
+        groups_allowed: [browser-user]
+
+command:
+    browser:
+        base: browser_user
+        parameters:
+            url:
+                parser: variable
+                type: str
+                optional: false
+                help: "URL to fetch Javascript rendered webpage"
+                value_label: URL
+                tags: [browser]
+        parse:
+            - url

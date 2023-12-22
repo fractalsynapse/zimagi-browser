@@ -1,0 +1,4 @@
+command:
+    agent:
+        browser:
+            base: agent
