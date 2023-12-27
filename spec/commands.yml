@@ -6,6 +6,7 @@ command_base:
 command:
     browser:
         base: browser_user
+        worker_type: browser
         parameters:
             url:
                 parser: variable
