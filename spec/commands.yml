@@ -1,3 +1,7 @@
+command_mixins:
+    browser:
+        class: BrowserCommandMixin
+
 command_base:
     browser_user:
         server_enabled: true

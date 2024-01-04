@@ -135,6 +135,10 @@ class Browser(SelectorMixin):
     def source(self):
         return self.driver.page_source if self.driver else ''
 
+    @property
+    def final_url(self):
+        return self.driver.current_url if self.driver else None
+
 
     def request(self, url):
         if self.driver:
