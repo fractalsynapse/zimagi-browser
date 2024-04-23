@@ -17,6 +17,7 @@ class BrowserCommandMixin(CommandMixin('browser')):
 
         return Collection(
             url = webpage['url'],
+            title = soup.title.text.encode('ascii', errors = 'ignore').decode().strip() if soup.title else '',
             text = text,
             soup = soup
         )
