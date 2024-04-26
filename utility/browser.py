@@ -125,6 +125,7 @@ class Browser(SelectorMixin):
         )
 
         self.driver = Chrome(options = options)
+        self.driver.close()
 
         if url:
             self.request(url)
