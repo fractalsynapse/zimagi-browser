@@ -149,7 +149,7 @@ class Browser(SelectorMixin):
     def request(self, url):
         if self.driver:
             self.driver.get(url)
-            time.sleep(3)
+            time.sleep(4)
 
     def close(self):
         if self.driver:
