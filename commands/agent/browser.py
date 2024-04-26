@@ -30,7 +30,11 @@ class Browser(Agent('browser')):
 
     def _fetch_html(self, url):
         browser = WebBrowser(url)
+        source = browser.source
+        url = browser.final_url
+        browser.close()
+
         return Collection(
-            source = browser.source,
-            url = browser.final_url
+            source = source,
+            url = url
         )
