@@ -149,9 +149,9 @@ class Browser(SelectorMixin):
         if self.driver:
             try:
                 self.driver.get(url)
+                time.sleep(4)
             except Exception as e:
                 pass
-            time.sleep(4)
 
     def close(self):
         if self.driver:
