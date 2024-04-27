@@ -128,6 +128,9 @@ class Browser(SelectorMixin):
         if url:
             self.request(url)
 
+    def __del__(self):
+        self.close()
+
 
     @property
     def title(self):
@@ -147,12 +150,7 @@ class Browser(SelectorMixin):
             try:
                 self.driver.get(url)
             except Exception as e:
-                print(url)
-                print(self.title)
-                print(self.source)
-                print(self.final_url)
-                print(e)
-                raise e
+                pass
             time.sleep(4)
 
     def close(self):
