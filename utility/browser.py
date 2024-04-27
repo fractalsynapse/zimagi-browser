@@ -147,7 +147,15 @@ class Browser(SelectorMixin):
 
     def request(self, url):
         if self.driver:
-            self.driver.get(url)
+            try:
+                self.driver.get(url)
+            except Exception as e:
+                print(url)
+                print(self.title)
+                print(self.source)
+                print(self.final_url)
+                print(e)
+                raise e
             time.sleep(4)
 
     def close(self):

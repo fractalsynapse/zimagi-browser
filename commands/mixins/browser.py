@@ -9,7 +9,6 @@ class BrowserCommandMixin(CommandMixin('browser')):
 
     def parse_webpage(self, url):
         webpage = self.submit('agent:browser', url)
-        print(webpage['source'])
         soup = BeautifulSoup(webpage['source'], 'html.parser')
         text = ''
 
