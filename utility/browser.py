@@ -128,9 +128,6 @@ class Browser(SelectorMixin):
         if url:
             self.request(url)
 
-    def __del__(self):
-        self.close()
-
 
     @property
     def title(self):
