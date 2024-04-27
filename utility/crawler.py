@@ -42,9 +42,10 @@ class WebCrawler(object):
                     if self.max_depth is None or depth < self.max_depth:
                         request_root = self._get_url_root(webpage.url)
                         for link in webpage.soup.find_all('a', href = True):
-                            page_link = "{}{}".format(request_root, link['href']) if link['href'][0] == '/' else link['href']
-                            if re.match(r"^{}[^\.]".format(request_root), page_link):
-                                self._fetch(page_link, (depth + 1))
+                            if 'href' in link and link['href']:
+                                page_link = "{}{}".format(request_root, link['href']) if link['href'][0] == '/' else link['href']
+                                if re.match(r"^{}[^\.]".format(request_root), page_link):
+                                    self._fetch(page_link, (depth + 1))
 
                     return True
             return False
