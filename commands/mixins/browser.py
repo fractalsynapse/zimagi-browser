@@ -10,6 +10,7 @@ class BrowserCommandMixin(CommandMixin('browser')):
 
     def parse_webpage(self, url):
         webpage = self.submit('agent:browser', url, timeout = 30)
+        browser = None
         text = ''
 
         if webpage['source']:
@@ -19,7 +20,7 @@ class BrowserCommandMixin(CommandMixin('browser')):
             soup, text = self._parse_webpage_text(browser.text)
 
         return Collection(
-            url = webpage['url'],
+            url = webpage['url'] if not browser else url,
             title = soup.title.text.encode('ascii', errors = 'ignore').decode().strip() if soup.title else '',
             text = text,
             soup = soup
