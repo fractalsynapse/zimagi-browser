@@ -115,7 +115,9 @@ class Browser(SelectorMixin):
         options.add_argument('--headless')
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
+        options.add_argument('--ignore-certificate-errors')
         options.add_argument('--window-size=1920,1200')
+        options.add_argument("--user-agent='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'")
         options.add_experimental_option(
             'prefs', {
                 'download.default_directory': '/dev/null',
@@ -149,8 +151,8 @@ class Browser(SelectorMixin):
         if self.driver:
             try:
                 self.driver.get(url)
-                time.sleep(4)
-            except Exception as e:
+                time.sleep(2)
+            except Exception:
                 pass
 
     def close(self):
